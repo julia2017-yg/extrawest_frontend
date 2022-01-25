@@ -1,4 +1,4 @@
-function calc(o,a,b){
+export function calc(o,a,b){
   switch(o) {
     case'+':
       return a+b;
@@ -16,5 +16,3 @@ function calc(o,a,b){
       return 0;
   }
 }
-
-module.exports = {calc}

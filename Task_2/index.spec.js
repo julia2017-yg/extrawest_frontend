@@ -1,17 +1,16 @@
-const operatins = require('./index');
-const assert = require('assert');
+import {stringMerge} from './index.js'
 
 describe("Tests", () => {
-  it('should return result concat', () => {
-    assert.equal(operatins.stringMerge("hello", "world", "l"),"held");
+  test('should return result concat', () => {
+    expect(stringMerge("hello", "world", "l")).toBe("held");
   });
-  it('should return result concat', () => {
-    assert.equal(operatins.stringMerge("coding", "anywhere", "n"),"codinywhere");
+  test('should return result concat', () => {
+    expect(stringMerge("coding", "anywhere", "n")).toBe("codinywhere");
   });
-  it('should return result concat', () => {
-    assert.equal(operatins.stringMerge("jason", "samson", "s"),"jasamson");
+  test('should return result concat', () => {
+    expect(stringMerge("jason", "samson", "s")).toBe("jasamson");
   });
-  it('should return result concat', () => {
-    assert.equal(operatins.stringMerge("wonderful", "people", "e"),"wondeople");
+  test('should return result concat', () => {
+    expect(stringMerge("wonderful", "people", "e")).toBe("wondeople");
   });
 });

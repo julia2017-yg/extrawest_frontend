@@ -1,22 +1,19 @@
-const operatins = require('./index');
-const assert = require('assert');
+import {calc} from './index.js'
 
-
-describe("Tests", () => {
-  it('should return sum of numbers', () => {
-    assert.equal(operatins.calc('+',4,7),11);
+describe('calc', () => {
+  test('should return sum of numbers', () => {
+      expect(calc('+',4,7)).toBe(11);
   });
-  it('should return minus of numbers', () => {
-    assert.equal(operatins.calc('-',15,18),-3);
+  test('should return minus of numbers', () => {
+    expect(calc('-',15,18)).toBe(-3);
   });
-  it('should return multiply of numbers', () => {
-    assert.equal(operatins.calc('*',5,5),25);
+  test('should return multiply of numbers', () => {
+    expect(calc('*',5,5)).toBe(25);
   });
-  it('should return divide of numbers', () => {
-    assert.equal(operatins.calc('/',49,7),7);
+  test('should return divide of numbers', () => {
+    expect(calc('/',49,7)).toBe(7);
   });
-  it('should return divide of numbers', () => {
-    assert.equal(operatins.calc('somethihg else',45, 45),0);
+  test('should return somethihg else of numbers', () => {
+    expect(calc('somethihg else',45,45)).toBe(0);
   });
 });
-
