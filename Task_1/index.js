@@ -1,4 +1,5 @@
 export function calc(o,a,b){
+
   switch(o) {
     case'+':
       return a+b;
@@ -15,4 +16,5 @@ export function calc(o,a,b){
     default:
       return 0;
   }
+  
 }
