@@ -1,5 +1,5 @@
 export function alphabetPosition(text) {
-  let result = "";
+  const result = "";
   for (let i = 0; i < text.length; i++) {
     let code = text.toUpperCase().charCodeAt(i)
     if (code > 64 && code < 91) {
