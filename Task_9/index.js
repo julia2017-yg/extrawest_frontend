@@ -1,6 +1,6 @@
 export function vowelCount(str) { 
   let count = 0;
-  let vowels = 'aeiou';
+  const vowels = 'aeiou';
   const arrVowels = vowels.split('');
   for(let char of str){
     if(arrVowels.includes(char)){
