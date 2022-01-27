@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/julia2017-yg/extrawest_frontend#readme",
   "devDependencies": {
+    "eslint": "^8.7.0",
     "jest": "^27.4.7"
   },
   "dependencies": {
