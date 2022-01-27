@@ -1,7 +1,7 @@
 export function getOperands(str) {
-
-    const arr = str.split(' ');
-    const myArr = arr.splice(1,1);
-    return 'a:'+' '+arr[0]+','+' '+'b:'+' '+arr[1];
     
+    let arr = str.split(' ');
+    arr.splice(1,1);
+    return 'a:'+' '+arr[0]+','+' '+'b:'+' '+arr[1];
+
 }
