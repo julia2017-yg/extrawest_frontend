@@ -10,7 +10,7 @@ describe("vowelCount", () => {
   it('should return the count of vowels', () => {
     expect(vowelCount('toy')).toBe(1);
   });
-  it('should return the count of vowels', () => {
+  it('should return zero if vowels does not found', () => {
     expect(vowelCount('555')).toBe(0);
   });
 });
