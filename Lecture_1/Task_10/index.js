@@ -1,9 +1,11 @@
 export function alphabetPosition(text) {
-  let result = "";
+  let result = '';
+
   for (let i = 0; i < text.length; i++) {
-    const code = text.toUpperCase().charCodeAt(i)
+    const code = text.toUpperCase().charCodeAt(i);
+
     if (code > 64 && code < 91) {
-      result += (code - 64) + " ";
+      result += (code - 64) + ' ';
     }
   }
 
