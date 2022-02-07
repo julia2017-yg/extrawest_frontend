@@ -1,3 +1,5 @@
 export const openOrSenior = arrayValue => {
-  return arrayValue.map(value => (value[0] >= 40 && value[1] > 15 ? 'Senior' : 'Open'));
+  const member = 40;
+  const workExperience = 15;
+  return arrayValue.map(value => (value[0] >= member && value[1] > workExperience ? 'Senior' : 'Open'));
 };
