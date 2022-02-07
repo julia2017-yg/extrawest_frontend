@@ -1,13 +1,13 @@
 export const invertObject = (object) => {
-  const retobj = {};
+  const returnObject = {};
 
   for (const key in object) {
-    if (retobj[object[key]] !== undefined) {
+  
+    if(returnObject.hasOwnProperty(object[key])){
       return null;
-    } else {
-      retobj[object[key]] = key;
     }
+    returnObject[object[key]] = key;  
   }
 
-  return retobj;
+  return returnObject;
 };
