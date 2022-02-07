@@ -19,23 +19,23 @@ export const transformState = (state,transform) => {
   return state;
 };
 
-function addProperties(state, prop){
+const addProperties = (state, prop) =>{
  
   return Object.assign(state, prop);
 
-}
+};
 
-function clearProperties(state){
+const clearProperties = (state) => {
 
   Object.keys(state).forEach(key => delete state[key]);
 
   return state;
-}
+};
 
-function removeProperties(state, prop){ 
+const removeProperties = (state, prop) => { 
   for(const array of prop){   
     Reflect.deleteProperty(state, array); 
   }
   
   return state;
-}
+};
