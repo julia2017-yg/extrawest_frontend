@@ -4,7 +4,7 @@ export const createUrl = (url, params) => {
   const urlStr = url.match(regEx);
   
   urlStr.map(item => {
-    const replace = '{' + item + '}';
+    const replace = `{${item}}`;
     let flag = undefined;
 
     if(params[item] !== undefined) {
