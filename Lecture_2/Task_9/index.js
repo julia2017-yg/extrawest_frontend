@@ -7,23 +7,20 @@ export const transformStateWithClones = (state, transform) => {
     if (value.operation === 'addProperties') {
       const res = addProperties(copyState, value.properties);
       
-      array.push(res);
-      copyState = {...res};
+      array.push({...res});
     }
 
     if (value.operation === 'clear') {
       const res = clearProperties(copyState, value.properties);
 
-      array.push(res);
-      copyState = {...res};
+      array.push({...res});
     }
 
     if (value.operation === 'removeProperties'){
 
       const res = removeProperties(copyState, value.properties);
       
-      array.push(res);
-      copyState = {...res};
+      array.push({...res});
     }
 
   });
@@ -43,7 +40,7 @@ const clearProperties = (state) => {
 
 const removeProperties = (state, prop) => {
   for (const array of prop) {
-    Reflect.deleteProperty(state, array);
+    delete state[array];
   }
 
   return state;

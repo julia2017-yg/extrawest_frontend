@@ -34,8 +34,9 @@ const clearProperties = (state) => {
 
 const removeProperties = (state, prop) => { 
   for(const array of prop){   
-    Reflect.deleteProperty(state, array); 
+    delete state[array]; 
   }
   
   return state;
 };
+
