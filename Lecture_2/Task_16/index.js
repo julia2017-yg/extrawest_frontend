@@ -5,12 +5,10 @@ export const fearNotLetter = (str) => {
   for(let i = 1; i < str.length; i++){
     const currentLetter = str.charCodeAt(i);
   
-    if ((lastLetter+1) < currentLetter) {
-      missingLetter = String.fromCharCode(currentLetter-1);
-      break;
-    }else {
-      lastLetter=currentLetter;
+    if ((lastLetter + 1) < currentLetter) {
+    return  missingLetter = String.fromCharCode(currentLetter - 1); 
     }
+    lastLetter =  currentLetter;
   }
 
   return missingLetter;
