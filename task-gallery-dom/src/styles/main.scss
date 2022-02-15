@@ -13,10 +13,6 @@ body {
 li {
   list-style: none;
 }
-body {
-  margin: 0;
-  padding: 0;
-}
 a {
   cursor: pointer;
   display: block;
@@ -40,21 +36,20 @@ img {
   flex-wrap: wrap;
   width: 100%;
   flex-direction: row;
-}
-.list-item {
-  margin-top: 10px;
-}
-
-.list-item__link{
-  display: block;
-  max-width: 220px;
-  height: 123px;
-  object-fit: cover;
-}
-.list-item__link img {
-  max-width: 210px;
-  width: 100%;
-  height: 100%;
+    .list-item {
+      margin-top: 10px;
+      .list-item__link{
+        display: block;
+        max-width: 220px;
+        height: 123px;
+        object-fit: cover;
+        img {
+          max-width: 210px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+  }
 }
 
 @media (max-width:440px){

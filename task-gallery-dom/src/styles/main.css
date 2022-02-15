@@ -26,11 +26,6 @@ li {
   list-style: none;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
 a {
   cursor: pointer;
   display: block;
@@ -68,11 +63,11 @@ img {
           flex-direction: row;
 }
 
-.list-item {
+.gallery__list .list-item {
   margin-top: 10px;
 }
 
-.list-item__link {
+.gallery__list .list-item .list-item__link {
   display: block;
   max-width: 220px;
   height: 123px;
@@ -80,7 +75,7 @@ img {
      object-fit: cover;
 }
 
-.list-item__link img {
+.gallery__list .list-item .list-item__link img {
   max-width: 210px;
   width: 100%;
   height: 100%;

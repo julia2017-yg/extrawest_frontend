@@ -8,9 +8,6 @@ body {
 
 ul {
   display: none;
-  -webkit-transition:display 1s ease-in-out;
-  -o-transition:display 1s ease-in-out;
-  transition:display 1s ease-in-out; 
   cursor: pointer;
   &.tree {
     display: block;

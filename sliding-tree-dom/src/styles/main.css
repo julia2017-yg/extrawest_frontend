@@ -16,8 +16,6 @@ body {
 
 ul {
   display: none;
-  -webkit-transition: display 1s ease-in-out;
-  transition: display 1s ease-in-out;
   cursor: pointer;
 }
 
@@ -27,17 +25,5 @@ ul.tree {
 
 ul li.active > ul {
   display: block;
-}
-
-h1 {
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-}
-
-h4 {
-  height: auto;
-  opacity: 1;
-  overflow: visible;
 }
 /*# sourceMappingURL=main.css.map */

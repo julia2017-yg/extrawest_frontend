@@ -2,7 +2,7 @@
 fetch("https://fakestoreapi.com/products")
 .then(response => response.json())
 .then(data => { 
-  console.log(data)  
+ 
   console.log(sortCategory(data)+sortPrice(data));
   
   // for(let i = 0; i < data.length; i++){
