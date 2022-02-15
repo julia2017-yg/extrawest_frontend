@@ -30,11 +30,11 @@ function createTreeInner(data) {
   let ul;
 
   for (const key in data) {
-    li += '<li>' + key + createTreeInner(data[key]) + '</li>';
+    li += `<li> ${key} ${createTreeInner(data[key])} </li>`;
   }
 
   if (li) {
-    ul = '<ul>' + li + '</ul>';
+    ul = `<ul> ${li} </ul>`;
   }
 
   return ul || '';
