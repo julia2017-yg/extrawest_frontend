@@ -9,14 +9,12 @@ describe('frankenSplice', () => {
       .toBe(0);
   });
 
-  test('Should return sum of default\n'
-    + ' * value and passed argument', () => {
+  test('Should return sum of default value and passed argument', () => {
     expect(adder1(10, 20))
       .toBe(30);
   });
 
-  test('Should return sum of previous\n'
-    + ' * result and all passed arguments', () => {
+  test('Should return sum of previous result and all passed arguments', () => {
     expect(adder1(30, 40))
       .toBe(100);
   });
@@ -26,8 +24,7 @@ describe('frankenSplice', () => {
       .toBe(110);
   });
 
-  test('Should return sum of\n'
-    + ' * initial value and passed argument', () => {
+  test('Should return sum of initial value and passed argument', () => {
     expect(adder2(20, 30, 40))
       .toBe(200);
   });
