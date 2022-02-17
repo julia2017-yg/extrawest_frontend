@@ -3,7 +3,7 @@
 const thumbs = document.getElementById('thumbs');
 const largeImg = document.getElementById('largeImg');
 
-thumbs.addEventListener('click', function(event) {
+thumbs.addEventListener('click', (event) =>{
   event.preventDefault();
   let imageLink = event.target.closest('a');
 
@@ -11,7 +11,7 @@ thumbs.addEventListener('click', function(event) {
   
 })
 
-function showThumb(href, title) {
+const showThumb = (href, title) => {
   largeImg.src = href;
   largeImg.alt = title;
 }

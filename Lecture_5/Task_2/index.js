@@ -1,26 +1,44 @@
-async function fetchUsers(endpoint) {
+ const getData = async (endpoint) => {
   const res = await fetch(endpoint);
   const data = await res.json();
 
   return data;
 }
 
-async function fetchToDos(endpoint) {
-  const res = await fetch(endpoint);
-  const data = await res.json();
-
-  return data;
+const getFetchUser = async () => { 
+    try{
+      const users = await getData('https://jsonplaceholder.typicode.com/users');
+      console.log(getData(users))
+    }
+    catch(error) {
+      return error;
+    }
 }
 
-fetchUsers('https://jsonplaceholder.typicode.com/users')
-  .then(data => {
-    data.map(function(user) {
+const getFetchTodos = async () => { 
+  try{
+    const todos = await getData('https://jsonplaceholder.typicode.com/todos?completed=true');
+    console.log(getData(todos))
+  }
+  catch(error) {
+    return error;
+  }
+}
 
-      fetchToDos('https://jsonplaceholder.typicode.com/todos?userId='+user.id)
-        .then(todo => {      
-          user.todos = {...todo};
-        });
-      console.log([user]);
-    });
+
+
+// fetch('https://jsonplaceholder.typicode.com/todos?userId=',true)
+// .then
+// getData('https://jsonplaceholder.typicode.com/users')
+//   .then(data => {
+      
+//     data.map((user) => {
+
+//       fetchToDos('https://jsonplaceholder.typicode.com/todos?userId=',true)
+//         .then(todo => {      
+//           user.todos = {...todo};
+//         });
+//       console.log([user]);
+//     });
      
-  });
+//   });
