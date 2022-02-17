@@ -1,28 +1,26 @@
-const resultOfResponse = document.querySelector(".response");
+async function fetchUsers(endpoint) {
+  const res = await fetch(endpoint);
+  const data = await res.json();
 
-  fetch('https://jsonplaceholder.typicode.com/users/')
-      .then(response => response.json())
-      .then(data => {        
-        fetchUserData(data);
-      });
+  return data;
+}
 
-      const fetchUserData = (users) => {
-        users.forEach(user =>{
-          resultOfResponse.innerHTML += `<div>Users:${user.name}</div>`;
+async function fetchToDos(endpoint) {
+  const res = await fetch(endpoint);
+  const data = await res.json();
+
+  return data;
+}
+
+fetchUsers('https://jsonplaceholder.typicode.com/users')
+  .then(data => {
+    data.map(function(user) {
+
+      fetchToDos('https://jsonplaceholder.typicode.com/todos?userId='+user.id)
+        .then(todo => {      
+          user.todos = {...todo};
         });
-       return users;
-      }
-
-
-  fetch('https://jsonplaceholder.typicode.com/todos')
-  .then(response => response.json())
-  .then(data => {        
-    fetchUserToDos(data);
-  });
-
-  const fetchUserToDos = (todo) => {
-    todo.forEach(item => {
-      resultOfResponse.innerHTML += `<div>Users:${item.todos}</div>`;
+      console.log([user]);
     });
-    return todo;
-  }
+     
+  });

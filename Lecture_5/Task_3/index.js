@@ -1,24 +1,11 @@
-axios.get('https://jsonplaceholder.typicode.com/')
-.then(response => response.json())
-.then(data => { 
- 
-  console.log(getUsers(data));
-  
-  
-});
+const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
-axios.get('https://jsonplaceholder.typicode.com/posts')
-.then(response => response.json())
-.then(data=>console.log(data.title));
+const fetchUsers = async() => {
+  try {
+    return await axios.get(`${BASE_URL}/users`);
+  } catch (e) {
+    return [];
+  }
+};
 
-axios.get('https://jsonplaceholder.typicode.com/')
-.then(response => response.json())
-.then(data=>console.log(data));
-
-const getUsers = (users) => {
-  users.forEach(element => {
-     
-     console.log(element.username);
-  });
-  return users;
-}
+console.log(fetchUsers());
