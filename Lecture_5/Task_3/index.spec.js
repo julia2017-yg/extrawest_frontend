@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import { getUsersPostComments } from  './index';
+import { getUsersPostComments } from  './index.js';
 
 jest.mock('axios');
 
