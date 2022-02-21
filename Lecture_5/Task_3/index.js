@@ -1,20 +1,23 @@
-const BASE_URL = 'https://jsonplaceholder.typicode.com';
+const axios = require('axios');
 
-const fetchUsers = async() => {
+const getUsersPostComments = async() =>{
   try {
-    return await axios.get(`${BASE_URL}/users`);
-  } catch (e) {
-    return [];
-  }
-};
+    const users = await axios.get('https://jsonplaceholder.typicode.com/users');
+    const posts = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    const comments = await axios.get('https://jsonplaceholder.typicode.com/comments');
 
- const getUser = async() => {
-  try {
-    const response = await axios.get('/user?ID=12345');
-    console.log(response);
+    const postCom = posts.map(post => ({
+      ...post, comments: comments.filter(comment => post.id === comment.postId),
+    }));
+
+    const result = users.map(user => ({
+      ...user, post: postCom.filter(post => user.id === post.userId),
+    }));
+
+    return result;
   } catch (error) {
     console.error(error);
   }
 };
 
-console.log(fetchUsers());
+export {getUsersPostComments};
