@@ -16,7 +16,7 @@ const getUsersPostComments = async() =>{
 
     return result;
   } catch (error) {
-    console.error(error);
+    return (error);
   }
 };
 
