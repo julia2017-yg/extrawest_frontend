@@ -13,14 +13,14 @@ beforeEach(() => {
 describe('sorted', () => {
   beforeEach(() => {
     fetch.mockImplementationOnce(() => Promise.resolve({
-      json: () => Promise.resolve([{category: 'b'}, {category: 'a'}]),
+      json: () => Promise.resolve([{category: 'b'}, {category: 'a'}],[{price: 'b'}, {price: 'a'}]),
     }));
   });
   
   test('sorted', async() => {
     const result = await sorted();
   
-    expect(result).toEqual([{'category': 'a'}, {'category': 'b'}]);
+    expect(result).toEqual([{'category': 'a'}, {'category': 'b'}],[{price: 'a'}, {price: 'b'}]);
   });
   
   test('fetch should be called once with https://fakestoreapi.com/products', async() => {
