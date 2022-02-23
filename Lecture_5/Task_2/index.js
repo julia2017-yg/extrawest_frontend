@@ -23,4 +23,3 @@ const getUserTodo = async() => {
 };
 
 export {getUserTodo};
-

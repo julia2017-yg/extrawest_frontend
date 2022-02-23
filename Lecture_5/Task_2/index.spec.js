@@ -26,6 +26,7 @@ describe('getUserTodo', () => {
   beforeEach(() => {
     fetch.mockImplementationOnce(() => Promise.resolve({
       json: () => Promise.resolve(users),
+     
     }));
 
 
@@ -53,14 +54,7 @@ describe('getUserTodo', () => {
   });
 
   test('fetch should be called twice', async() => {
-    fetch.mockImplementationOnce(() => Promise.resolve({
-      json: () => Promise.resolve(users),
-    }));
-
-
-    fetch.mockImplementationOnce(() => Promise.resolve({
-      json: () => Promise.resolve(todos),
-    }));
+    fetch.mockResolvedValueOnce({users},{todos});
 
     await getUserTodo();
 

@@ -1,6 +1,6 @@
 
-import axios from 'axios';
-import { getUsersPostComments } from  './index.js';
+import * as axios from 'axios';
+import { userPostsComments } from  './index.js';
 
 jest.mock('axios');
 
@@ -8,7 +8,7 @@ beforeEach(() => {
   axios.mockClear();
 });
 
-describe('getUsersPostComments', () => {
+describe('userPostsComments', () => {
   const users = [
     {
       id: 1, name: 'John',
@@ -32,7 +32,7 @@ describe('getUsersPostComments', () => {
     axios.get.mockResolvedValueOnce({data: posts});
     axios.get.mockResolvedValueOnce({data: comments});
   
-    await getUsersPostComments();
+    await userPostsComments();
   
     expect(axios.get).toHaveBeenCalledTimes(3);
   
@@ -54,7 +54,7 @@ describe('getUsersPostComments', () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({data: posts}));
     axios.get.mockImplementationOnce(() => Promise.resolve({data: comments}));
   
-    const result = await getUsersPostComments();
+    const result = await userPostsComments();
   
     expect(result).toEqual([
       {

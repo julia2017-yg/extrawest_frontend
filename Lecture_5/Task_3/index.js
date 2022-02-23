@@ -1,23 +1,31 @@
-const axios = require('axios');
+import axios from 'axios';
 
-const getUsersPostComments = async() =>{
+export const userPostsComments = async() => {
   try {
-    const users = await axios.get('https://jsonplaceholder.typicode.com/users');
-    const posts = await axios.get('https://jsonplaceholder.typicode.com/posts');
-    const comments = await axios.get('https://jsonplaceholder.typicode.com/comments');
+    const [usersResult, postsResult, commentsResult] = await Promise.all([
+      axios.get('https://jsonplaceholder.typicode.com/users'),
+      axios.get('https://jsonplaceholder.typicode.com/posts'),
+      axios.get('https://jsonplaceholder.typicode.com/comments'),
+    ]);
+      
+    const users = usersResult.data;
+    const posts = postsResult.data;
+    const comments = commentsResult.data;
 
-    const postCom = posts.map(post => ({
-      ...post, comments: comments.filter(comment => post.id === comment.postId),
-    }));
+    const allUsers = users.map((user) => {
+      return {
+        ...user,posts: posts.filter((post) => user.id === post.userId)
+          .map((post) => (
+            {
+              ...post,
+              comments: comments
+                .filter((comment) => post.id === comment.postId),
+            })),
+      };
+    });
 
-    const result = users.map(user => ({
-      ...user, post: postCom.filter(post => user.id === post.userId),
-    }));
-
-    return result;
+    return allUsers;
   } catch (error) {
     return (error);
   }
 };
-
-export {getUsersPostComments};
