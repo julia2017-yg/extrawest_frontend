@@ -10,15 +10,19 @@ const getData = async(endpoint) => {
 
 
 const getUserTodo = async() => {
+  try {
+    const users = await getData(urlUsers); 
+    const todos = await getData(urlTodos);
 
-  const users = await getData(urlUsers); 
-  const todos = await getData(urlTodos);
+    const result = users.map(user => ({
+      ...user, todo: todos.filter(todo => todo.userId == user.id),
+    }));
 
-  const result = users.map(user => ({
-    ...user, todo: todos.filter(todo => todo.userId == user.id),
-  }));
+    return result;
 
-  return result;
+  }catch (error) {
+    return (error);
+  }
   
 };
 

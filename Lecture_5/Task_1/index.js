@@ -9,12 +9,17 @@ const getData = async(endpoint) => {
 
 
 const sorted = async() => {
+  try {
+    const product = await getData(urlProduct);
+    
+    product.sort((a,b) => a.category.localeCompare(b.category) || b.price - a.price);
 
-  const product = await getData(urlProduct);
+    return product;
 
-  product.sort((a,b) => a.category.localeCompare(b.category) || b.price - a.price);
-
-  return product;
+  }catch (error) {
+    return (error);
+  }
+  
   
 };
 
